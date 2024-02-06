@@ -184,6 +184,7 @@ def recup_tuiles(fabrique, tuille_choisi, tuiles_zone_centre):
     et place le reste dans la zone du centre
     """
     tuiles = []
+
     for element in fabrique["tuiles"]:
         if element == fabrique["tuiles"][tuille_choisi]:
             tuiles.append(element)
@@ -372,7 +373,7 @@ def gestion_choix_ordi(joueur, fabriques, tuiles_zone_centre, tuile_permier_joue
     while True:
 
         if mode_bot == "difficile":
-            tuiles_choisi, tuiles_zone_centre, tuile_permier_joueur, ligne = gestion_choix_mode_difficile(joueur, fabriques, tuiles_zone_centre, tuile_permier_joueur)
+            tuiles_zone_centre, tuiles_choisi, tuile_permier_joueur, ligne = gestion_choix_mode_difficile(joueur, fabriques, tuiles_zone_centre, tuile_permier_joueur)
         elif fabriques_sont_vides(fabriques) or (mode_bot == "longue" and tuile_plus_nombreuse[1] > 2):
             if tuiles_zone_centre:
                 choix_tuile = gestion_bot_zone_centre(mode_bot, tuile_plus_nombreuse, tuile_moins_nombreuse, tuiles_zone_centre)
