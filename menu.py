@@ -86,6 +86,8 @@ def menu():
         partie(3,[False, True, True], choix_ia)
     elif choix == "Regarder":
         partie(4, [True, True, True,True], choix_ia)
+    elif choix == "1v1v1":
+        partie(3, [False, False, False], choix_ia)
     elif choix == "1v1v1v1":
         partie(4, [False, False, False, False], choix_ia)
     elif choix =="1vAutomat":
