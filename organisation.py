@@ -99,7 +99,7 @@ def zone_clique(x, y, pos_x, pos_y, taille):
     """
     renvoie true les coordonnées (x;y) se trouve dans la plage de la pos_x à la pos_x
     """
-    return pos_x <= x <= pos_x+taille and pos_y <= y <= pos_y + taille
+    return x >= pos_x and x <= pos_x+taille and y >= pos_y and y <= pos_y+taille
 
 
 def choisie_tuile(fabriques, tuiles_zone_centre, tuile_permier_joueur, x, y):
@@ -118,9 +118,10 @@ def choisie_tuile(fabriques, tuiles_zone_centre, tuile_permier_joueur, x, y):
     if tuiles_zone_centre != []:
         # si le centre n'est pas vide, appel la fonction qui verifie si on clic dans la zone centre et qui fait les modification
         resultat = recup_tuiles_dans_zone_centre(tuiles_zone_centre, tuile_permier_joueur, nb_tuiles_zone_centre, x, y, fabriques)
-        resultat = list(resultat)
-        resultat.append("centre")
-        return resultat
+        if resultat:
+            resultat = list(resultat)
+            resultat.append("centre")
+            return resultat
             # si des modification on eu lieu, alors on les renvoie, cela veut dire que le joueur a choisi des tuiles
     return [], fabriques, tuiles_zone_centre, tuile_permier_joueur, None
 
@@ -191,15 +192,6 @@ def recup_tuiles(fabrique, tuille_choisi, tuiles_zone_centre):
             tuiles_zone_centre.append(element)
             # la met dans la zone du centre si elle n'est pas de la meme couleur
     return tuiles, tuiles_zone_centre
-
-
-def zone_clique(x, y, pos_x, pos_y, taille):
-    """
-    verifie si on a cliquer dans la zone qui commence à pos_x, pos_y
-    qui est d'une certaine taille
-    """
-    return x >= pos_x and x <= pos_x+taille and y >= pos_y
-
 
 def verif_clique_dans_ligne_motif(nb_tuiles, tuiles_choisi, joueur, sens, x, y):
     """
