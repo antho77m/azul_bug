@@ -50,8 +50,11 @@ def creer_fabrique_tuiles(nb_joueurs,sac, defausse):
     fabriques = []
     nb_fabriques = 5+(nb_joueurs-2)*2
     for i in range(nb_fabriques):
-        fabriques.append({"pos": l_coord_fabriques[i],
+        if len(sac) > 0:
+            fabriques.append({"pos": l_coord_fabriques[i],
                         "tuiles" : [sac.pop(randint(0,len(sac)-1)) for _ in range(4)]})
+        else:
+            break
     return fabriques
 
 
