@@ -167,7 +167,7 @@ def dessin_plateau_joueurs(joueurs):
         texte(j["pos_plateau"][0],j["pos_plateau"][1]-75,j["nom"],taille=41,couleur="Black",police="Copperplate gothic bold")
         texte(j["pos_plateau"][0],j["pos_plateau"][1]-75,j["nom"],taille=40,couleur="Orange",police="Copperplate gothic bold")
 
-        texte(j["pos_score"][0],j["pos_score"][1],"Score "+str(j["nom"].split(" ")[1]),couleur="Pink", taille=20, tag="score",police="Copperplate gothic bold")
+        texte(j["pos_score"][0],j["pos_score"][1],"Score "+str(j["score"]),couleur="Pink", taille=20, tag="score",police="Copperplate gothic bold")
         dessin_mur(j)
         dessin_lignes_motif(j)
         dessin_plancher(j)
