@@ -640,7 +640,7 @@ def score_fin(joueurs):
     calcul du score de fin pour tous les joueurs
     """
     for joueur in joueurs:
-        joueur["score"] += 2*nb_ligne_mur_remplie(joueurs)+nb_colonne_mur_remplie(joueur)*7+nb_couleur_mur_remplie(joueur)*10
+        joueur["score"] += 2*nb_ligne_mur_remplie(joueur)+nb_colonne_mur_remplie(joueur)*7+nb_couleur_mur_remplie(joueur)*10
 
 def nb_ligne_mur_remplie(joueur):
     """
