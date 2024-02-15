@@ -58,9 +58,9 @@ def dessin_lignes_motif(joueur):
     for i in range(1,6):
         for a in range(i):
             if joueur["sens"] == "gauche":
-                dessin_tuile(joueur["motif"][i-1][a], joueur["pos_lignes_motif"][0]+a*25, joueur["pos_lignes_motif"][1]+(i-1)*25, id="tuile")
-            else:
                 dessin_tuile(joueur["motif"][i-1][a], joueur["pos_lignes_motif"][0]-a*25, joueur["pos_lignes_motif"][1]+(i-1)*25, id="tuile")
+            else:
+                dessin_tuile(joueur["motif"][i-1][a], joueur["pos_lignes_motif"][0]+a*25, joueur["pos_lignes_motif"][1]+(i-1)*25, id="tuile")
         # dessine a case qui vont vers la gauche si c'est la ligne du premier joueur
         # dessine a case qui vont vers la droite si c'est la ligne du deuxième joueur
     # repete les dessin 5 fois
@@ -167,7 +167,7 @@ def dessin_plateau_joueurs(joueurs):
         texte(j["pos_plateau"][0],j["pos_plateau"][1]-75,j["nom"],taille=41,couleur="Black",police="Copperplate gothic bold")
         texte(j["pos_plateau"][0],j["pos_plateau"][1]-75,j["nom"],taille=40,couleur="Orange",police="Copperplate gothic bold")
 
-        texte(j["pos_score"][0],j["pos_score"][1],"Score "+str(j["nom"].split(" ")[1]),couleur="Pink", taille=20, tag="score",police="Copperplate gothic bold")
+        texte(j["pos_score"][0],j["pos_score"][1],"Score "+str(j["score"]),couleur="Pink", taille=20, tag="score",police="Copperplate gothic bold")
         dessin_mur(j)
         dessin_lignes_motif(j)
         dessin_plancher(j)
